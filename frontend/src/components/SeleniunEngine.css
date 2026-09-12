@@ -1,0 +1,151 @@
+:root {
+  /* Colores Originales */
+  --track-color: #cbd5e1;
+  --pdf-color: #ef4444;
+  --pdf-fold: #b91c1c;
+  --word-color: #3b82f6;
+  --word-fold: #1d4ed8;
+  --excel-color: #10b981;
+  --excel-fold: #047857;
+
+  /* Colores Engine (Mejorados) */
+  --engine-main: #4f46e5;
+  --engine-accent: #6366f1;
+  --engine-bg: #ffffff;
+
+  --text-dark: #1e293b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --track-color: #334155;
+    --engine-bg: #1e293b;
+    --text-dark: #f8fafc;
+  }
+}
+
+/* Tipografía y Textos */
+.label-text {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  fill: var(--text-dark);
+  text-anchor: middle;
+}
+
+.engine-label {
+  font-weight: 700;
+  fill: var(--engine-main);
+  font-size: 15px;
+}
+
+.doc-text {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  fill: #ffffff;
+  text-anchor: middle;
+}
+
+/* --- ANIMACIONES DE LA ESCENA --- */
+
+/* Contenedor Principal */
+.anim-scene {
+  animation: scene-fade 10s linear infinite;
+}
+
+@keyframes scene-fade {
+  0%, 92% { opacity: 1; }
+  97%, 100% { opacity: 0; }
+}
+
+/* Línea de Trayectoria */
+.track-line {
+  stroke-dasharray: 6 10;
+  opacity: 0.5;
+  animation: flow-track 20s linear infinite;
+}
+
+@keyframes flow-track {
+  to { stroke-dashoffset: -100; }
+}
+
+/* 1. PDF entrando al motor */
+.anim-pdf {
+  animation: slide-in-pdf 10s cubic-bezier(.4, 0, .2, 1) infinite;
+}
+
+@keyframes slide-in-pdf {
+  0% { transform: translate(80px, 225px) scale(0.8); opacity: 0; }
+  10%, 25% { transform: translate(160px, 225px) scale(1); opacity: 1; }
+  35% { transform: translate(400px, 225px) scale(0); opacity: 0; }
+  100% { transform: translate(400px, 225px) scale(0); opacity: 0; }
+}
+
+/* 2. El Motor (Engine) */
+.anim-engine {
+  transform: translate(400px, 225px);
+  animation: engine-float 6s ease-in-out infinite;
+}
+
+@keyframes engine-float {
+  0%, 100% { transform: translate(400px, 225px); }
+  50% { transform: translate(400px, 215px); } /* Flotación premium */
+}
+
+/* Resplandor del motor */
+.engine-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { transform: scale(1); opacity: 0.1; }
+  50% { transform: scale(1.5); opacity: 0.25; }
+}
+
+/* Núcleo giratorio */
+.engine-core {
+  transform-origin: center;
+  animation: rotate-core 10s linear infinite;
+}
+
+@keyframes rotate-core {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Partículas de datos saliendo del motor */
+.data-particle {
+  opacity: 0;
+}
+
+.p1 { animation: flow-particle 10s 4s infinite; }
+.p2 { animation: flow-particle 10s 4.5s infinite; }
+
+@keyframes flow-particle {
+  0% { transform: translate(0, 0) scale(0); opacity: 0; }
+  20% { transform: translate(60px, -25px) scale(1); opacity: 1; }
+  40% { transform: translate(120px, 0px) scale(0); opacity: 0; }
+  100% { transform: translate(120px, 0px) scale(0); opacity: 0; }
+}
+
+/* 3. Salidas (Outputs) */
+.anim-outputs {
+  animation: outputs-emerge 10s cubic-bezier(.4, 0, .2, 1) infinite;
+}
+
+@keyframes outputs-emerge {
+  0%, 55% { transform: translate(400px, 225px) scale(0); opacity: 0; }
+  65%, 92% { transform: translate(640px, 225px) scale(1); opacity: 1; }
+  100% { transform: translate(680px, 225px) scale(0.8); opacity: 0; }
+}
+
+/* Efecto Hover */
+.engine-group {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.seleniun-svg-container:hover .engine-group {
+  transform: scale(1.05);
+}

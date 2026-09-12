@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =======================================================
+   SELENIUM DESIGN SYSTEM
+   Minimal • Técnico • Sin degradados • Sin efectos glow
+======================================================= */
+
+@layer base {
+:root {
+  /* ===============================
+     BRAND CORE
+  =============================== */
+  --brand-primary: 199 100% 36%;  /* Ocean #0077B6 */
+  --brand-accent: 158 64% 42%;    /* Verde ejecución */
+
+  /* ===============================
+     BASE COLORS (LIGHT - PROFESIONAL)
+  =============================== */
+
+  --background: 210 40% 98%;      /* Gris humo */
+  --foreground: 222 47% 11%;      /* Texto principal oscuro */
+
+  --card: 0 0% 100%;              /* Blanco limpio */
+  --card-foreground: 222 47% 11%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+
+  --primary: var(--brand-primary);
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96%;       /* Sección alterna */
+  --secondary-foreground: 222 47% 11%;
+
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%; /* Texto secundario */
+
+  --accent: var(--brand-accent);
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214 32% 91%;          /* Bordes suaves */
+  --input: 214 32% 91%;
+  --ring: var(--brand-primary);
+
+  --radius: 0.75rem;
+
+  /* Sidebar */
+  --sidebar-background: 0 0% 100%;
+  --sidebar-foreground: 222 47% 11%;
+  --sidebar-primary: var(--brand-primary);
+  --sidebar-primary-foreground: 210 40% 98%;
+  --sidebar-accent: 210 40% 96%;
+  --sidebar-accent-foreground: 222 47% 11%;
+  --sidebar-border: 214 32% 91%;
+  --sidebar-ring: var(--brand-primary);
+}
+
+  /* ===============================
+     GLOBAL BASE STYLES
+  =============================== */
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans text-[16px] leading-7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight text-foreground;
+  }
+
+  h1 {
+    @apply text-4xl md:text-6xl font-extrabold leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-bold;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold;
+  }
+}
+
+/* =======================================================
+   UTILITIES
+   (Solo lo necesario, sin marketing effects)
+======================================================= */
+
+@layer utilities {
+  .hover-lift {
+    transition: transform 0.25s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  .bg-alternate {
+    background-color: hsl(215 16% 18%);
+  }
+}
+
+/* =======================================================
+   EDITOR STYLES
+======================================================= */
+
+[contenteditable] span[data-custom-font] {
+  font-family: unset !important;
+}
+
+[contenteditable] span[data-custom-size] {
+  font-size: unset !important;
+  line-height: unset !important;
+}
+
+/* Editor Content */
+
+.editor-content ul {
+  list-style: disc !important;
+  padding-left: 1.5rem !important;
+  margin: 0.5rem 0 !important;
+}
+
+.editor-content ol {
+  list-style: decimal !important;
+  padding-left: 1.5rem !important;
+  margin: 0.5rem 0 !important;
+}
+
+.editor-content li {
+  list-style: inherit !important;
+  margin: 0.25rem 0 !important;
+}
+
+.editor-content blockquote {
+  border-left: 4px solid hsl(var(--brand-primary));
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: hsl(var(--muted-foreground));
+  font-style: italic;
+  background: hsl(215 16% 18%);
+  border-radius: 8px;
+}
+
+/* Headings */
+
+.editor-content h1,
+.preview-content h1 {
+  font-size: 24pt !important;
+  font-weight: 700 !important;
+  margin: 16pt 0 8pt !important;
+  line-height: 1.3 !important;
+}
+
+.editor-content h2,
+.preview-content h2 {
+  font-size: 18pt !important;
+  font-weight: 600 !important;
+  margin: 12pt 0 6pt !important;
+  line-height: 1.4 !important;
+}
+
+.editor-content h3,
+.preview-content h3 {
+  font-size: 16pt !important;
+  font-weight: 600 !important;
+  margin: 10pt 0 5pt !important;
+  line-height: 1.4 !important;
+}
+
+.editor-content p,
+.preview-content p {
+  margin: 8pt 0 !important;
+  line-height: 1.6 !important;
+}
+
+.editor-content strong,
+.preview-content strong {
+  font-weight: 700 !important;
+}
+
+.preview-content ul,
+.preview-content ol {
+  padding-left: 1.5rem !important;
+  margin: 8pt 0 !important;
+}
+
+.preview-content li {
+  margin: 4pt 0 !important;
+  line-height: 1.6 !important;
+}

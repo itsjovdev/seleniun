@@ -1,0 +1,11 @@
+# Backend / server y cosas que no necesita el build del frontend
+server.js
+supabase/
+functions/
+migrations/
+seed/
+
+# Archivos locales/privados
+.env
+.env.local
+bun.lockb

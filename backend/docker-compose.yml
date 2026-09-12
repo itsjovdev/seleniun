@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  api:
+    build: .
+    container_name: nest-api
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      MAX_PAGES: 15
+      MAX_PDF_MB: 10
+      LLM_PROVIDER: deepseek
+      LLM_MODEL: deepseek-chat
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY}
+    ports:
+      - "3000:3000"
